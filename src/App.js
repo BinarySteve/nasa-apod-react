@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
 import NasaDate from "./components/NasaDate";
 import Nasaphoto from "./components/Nasaphoto";
-
+import Space from './images/space.jpg'
 
 function App() {
   const [date, setDate] = useState("");
@@ -20,17 +19,18 @@ function App() {
       .then((json) => setPhoto(json));
   }, [date]);
 
-  const changeDate = (e) => {
-    e.preventDefault();
-    let dateInput = e.target[0].value;
-    setDate(dateInput);
+  const changeDate = (value) => {
+    console.log(value);
+    setDate(value.toISOString().substr(0, 10));
   };
 
   return (
-    <div className="container text-center m-100">
-      <h1>NASA's Astronomy Pic of the Day</h1>
-      <NasaDate changeDate={changeDate} />
-      <Nasaphoto photo={photo} />
+    <div style={{ backgroundImage: `url("${Space}")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+      <h1 className="text-center text-white">NASA's Astronomy Pic of the Day</h1>
+      <div className="container app__container">
+        <NasaDate changeDate={changeDate} />
+        <Nasaphoto photo={photo} />
+      </div>
     </div>
   );
 }
