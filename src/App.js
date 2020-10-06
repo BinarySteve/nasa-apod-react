@@ -8,13 +8,12 @@ function App() {
   const [photo, setPhoto] = useState("");
   const today = new Date();
   today.setDate(today.getDate() - 1);
+  const url = `https://api.nasa.gov/planetary/apod?api_key=F4ziqaZddjT1dqbitcXz5IqWhy8ymecPspZb5icN&date=${
+    date === "" ? today.toISOString().substr(0, 10) : date
+  }`;
 
   useEffect(() => {
-    fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=F4ziqaZddjT1dqbitcXz5IqWhy8ymecPspZb5icN&date=${
-        date === "" ? today.toISOString().substr(0, 10) : date
-      }`
-    )
+    fetch(url)
       .then((res) => res.json())
       .then((json) => setPhoto(json));
   }, [date]);
@@ -25,16 +24,8 @@ function App() {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        backgroundImage: `url("${Space}")`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "50% 50%",
-      }}
-    >
-      <h1 className="text-center text-white">
+    <div>
+      <h1 className="text-center text-white mt-3">
         NASA's Astronomy Pic of the Day
       </h1>
       <div className="container app__container">

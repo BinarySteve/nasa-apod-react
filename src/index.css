@@ -1,14 +1,24 @@
-
-  .z__index{
-    z-index: 999;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  background: url("./images/space.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
-.space{
-    background: url('/space-bg.jpg') !important;
+.z__index {
+  z-index: 999;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.app__container{
-    height: 100vh;
+.space {
+  background: url("/space-bg.jpg") !important;
+}
+.app__container {
+  height: 100vh;
 }

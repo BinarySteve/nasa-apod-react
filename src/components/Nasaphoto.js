@@ -7,7 +7,7 @@ function Nasaphoto({ photo }) {
   photoDate.setDate(photoDate.getDate() + 1);
 
   return (
-    <Card style={{ borderRadius: "25px", display: "block" }} className="shadow">
+    <Card style={{ borderRadius: "25px", display:"block" }} className="shadow mb-5">
       {photo.code === 404 ? (
         <h1>Enter a date above</h1>
       ) : (
@@ -17,7 +17,7 @@ function Nasaphoto({ photo }) {
           </h1>
           <CardImg
             top
-            width="75%"
+            width="100%"
             style={{ borderRadius: "25px" }}
             src={photo.url}
             alt={photo.title}
@@ -26,7 +26,7 @@ function Nasaphoto({ photo }) {
           />
           <h2 className="text-center mb-5">{photo.title}</h2>
           <CardText
-            style={{ fontSize: "1rem", textAlign: "justify", overflow: "auto" }}
+            style={{ fontSize: "1rem", textAlign: "justify"}}
           >
             {photo.explanation}
           </CardText>
